@@ -1,6 +1,5 @@
 #include "simple_shell.h"
 
-/*********** find ********/
 
 /**
  * find_command - find commands
@@ -25,7 +24,6 @@ int find_command(char *command, char **paths, char *full_path)
 	return (0);
 }
 
-/******* execute *********/
 
 /**
  * execute_command - executes command
@@ -58,7 +56,6 @@ int execute_command(char *command, char **arguments)
 	}
 }
 
-/********** execute_builtin ********/
 
 
 /**

@@ -1,6 +1,5 @@
 #include "simple_shell.h"
 
-/******display prompt*****/
 
 /**
  * display_prompt - shows prompt
@@ -14,7 +13,6 @@ void display_prompt(void)
 	fflush(stdout);
 }
 
-/********* parse ************/
 
 /**
  * parse_command - parses command
@@ -39,7 +37,6 @@ void parse_command(char *command, char **arguments)
 }
 
 
-/********* get_paths ****************/
 
 /**
  * get_paths - gets path
