@@ -1,4 +1,4 @@
-#include "simple_shell.h"
+#include "shell.h"
 
 
 /**
@@ -14,7 +14,7 @@ int find_command(char *command, char **paths, char *full_path)
 {
 	int i = 0;
 
-	while (path[i] != NULL)
+	while (paths[i] != NULL)
 	{
 		sprintf(full_path, "%s/%s", paths[i], command);
 		if (access(full_path, X_OK) == 0)
@@ -51,7 +51,7 @@ int execute_command(char *command, char **arguments)
 	}
 	else
 	{
-		perror("Fork error")
+		perror("Fork error");
 			exit(1);
 	}
 }
@@ -75,7 +75,7 @@ int execute_builtin(char **arguments)
 	{
 		char **env = environ;
 
-		while (*env != NUll)
+		while (*env != NULL)
 		{
 			printf("%s\n", *env);
 		}

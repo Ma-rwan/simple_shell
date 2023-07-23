@@ -1,4 +1,4 @@
-#include "simple_shell.h"
+#include "shell.h"
 
 
 /**
@@ -29,7 +29,7 @@ void parse_command(char *command, char **arguments)
 
 	while (token != NULL)
 	{
-		arguments[i] = tokens;
+		arguments[i] = token;
 		token = strtok(NULL, " ");
 		i++;
 	}

@@ -9,6 +9,7 @@ int main(void)
 	char *arguments[MAX_ARGUMENTS];
 	char *paths[MAX_ARGUMENTS];
 	char full_path[MAX_COMMAND_LENGTH];
+	int status;
 
 	paths[0] = "/bin";
 
@@ -28,7 +29,7 @@ int main(void)
 			fprintf(stderr, "%s: command not found\n", arguments[0]);
 			continue;
 		}
-		int status = execute_command(full_path, arguments);
+		status = execute_command(full_path, arguments);
 
 		if (status == -1)
 		{
@@ -36,6 +37,5 @@ int main(void)
 			exit(1);
 		}
 	}
-	free(paths);
 	return (0);
 }
