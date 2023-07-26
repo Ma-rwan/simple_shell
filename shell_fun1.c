@@ -46,16 +46,22 @@ void parse_command(char *command, char **arguments)
 char **get_paths()
 {
 	char *path_env = getenv("PATH");
-	char *path = strtok(path_env, ":");
-	char **paths = malloc((MAX_ARGUMENTS + 1) * sizeof(char *));
-	int i = 0;
+	char *path_str = strdup(path_env);
 
-	while (path != NULL)
+	char **paths = NULL;
+	char *token = strtok(path_str, ":");
+
+	int count = 0;
+
+	while (token != NULL)
 	{
-		paths[i] = path;
-		path = strtok(NULL, ":");
-		i++;
+		paths = realloc(paths, sizeof(char *) * (count + 2));
+		paths[count] = strdup(token);
+		token = strtok(NULL, ":");
+		count++;
 	}
-	paths[i] = NULL;
+	paths[count] = NULL;
+
+	free(path_str);
 	return (paths);
 }

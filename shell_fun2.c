@@ -16,7 +16,7 @@ int find_command(char *command, char **paths, char *full_path)
 
 	while (paths[i] != NULL)
 	{
-		sprintf(full_path, "%s/%s", paths[i], command);
+		snprintf(full_path, MAX_COMMAND_LENGTH, "%s/%s", paths[i], command);
 		if (access(full_path, X_OK) == 0)
 			return (1);
 		i++;

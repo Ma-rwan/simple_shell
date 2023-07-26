@@ -13,7 +13,7 @@
 
 extern char **environ;
 
-void display_prompt();
+void display_prompt(void);
 void parse_command(char *command, char **arguments);
 int execute_command(char *command, char **arguments);
 int find_command(char *command, char **paths, char *full_path);
