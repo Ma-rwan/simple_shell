@@ -40,7 +40,8 @@ int execute_command(char *command, char **arguments)
 	if (pid == 0)
 	{
 		execvp(command, arguments);
-		exit(1);
+		fprintf(stderr, "%s: %d: %s: command not found\n", arguments[0], 1, command);
+		exit(EXIT_FAILURE);
 	}
 	else if (pid > 0)
 	{
@@ -52,7 +53,7 @@ int execute_command(char *command, char **arguments)
 	else
 	{
 		perror("Fork error");
-			exit(1);
+		exit(EXIT_FAILURE);
 	}
 }
 
