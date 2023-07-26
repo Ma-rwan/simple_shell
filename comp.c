@@ -10,12 +10,20 @@ int main(void)
 	char *paths[MAX_ARGUMENTS];
 	char full_path[MAX_COMMAND_LENGTH];
 	int status;
+	size_t n = 0;
+	ssize_t nchars_read;
 
 	paths[0] = "/bin";
 
 	while (1)
 	{
 		display_prompt();
+		nchars_read = getline(&lineptr, &n, stdin);
+		if (nchars_read == -1)
+		{
+			printf("Exit");
+			return (-1);
+		}
 		if (fgets(command, MAX_COMMAND_LENGTH, stdin) == NULL)
 		break;
 		command[strcspn(command, "\n")] = '\0';
