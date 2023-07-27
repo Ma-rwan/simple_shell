@@ -7,7 +7,7 @@
  *@n: num of amount
  *Return: string
  */
- char *_strncpy(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
 	int i, j;
 	char *s = dest;
@@ -31,7 +31,7 @@
 }
 
 /**
- * strncat - cat string
+ * _strncat - cat string
  * @dest: string 1
  * @src: string 2
  * @n: amount num
@@ -58,7 +58,7 @@ char *_strncat(char *dest, char *src, int n)
 }
 
 /**
- * strchr - string character
+ * _strchr - string character
  * @s: string
  * @c: character
  * Return: (s)
